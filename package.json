@@ -15,5 +15,19 @@
   "bugs": {
     "url": "https://github.com/dfriedenbach/hackmaster-tools/issues"
   },
-  "homepage": "https://github.com/dfriedenbach/hackmaster-tools#readme"
+  "homepage": "https://github.com/dfriedenbach/hackmaster-tools#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "path": "^0.12.7",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "webpack": "^4.10.2"
+  }
 }
