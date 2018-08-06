@@ -1,33 +1,35 @@
 {
   "name": "hackmaster-tools",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A set of tools for creating and managing characters in the HackMaster 4th Edition roleplaying system.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dfriedenbach/hackmaster-tools.git"
   },
   "author": "Daniel Friedenbach",
-  "license": "GPL-3.0",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/dfriedenbach/hackmaster-tools/issues"
   },
   "homepage": "https://github.com/dfriedenbach/hackmaster-tools#readme",
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "webpack-dev-server": "^3.1.4"
-  },
   "dependencies": {
-    "html-webpack-plugin": "^3.2.0",
-    "path": "^0.12.7",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "webpack": "^4.10.2"
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts-ts": "2.17.0"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.5.6",
+    "@types/react": "^16.4.7",
+    "@types/react-dom": "^16.0.6",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.1"
   }
 }
