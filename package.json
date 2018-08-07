@@ -8,7 +8,7 @@
     "url": "git+https://github.com/dfriedenbach/hackmaster-tools.git"
   },
   "author": "Daniel Friedenbach",
-  "license": "UNLICENSED",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/dfriedenbach/hackmaster-tools/issues"
   },
