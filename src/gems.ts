@@ -39,6 +39,8 @@ export interface IGem {
   name: string;
   size: GemSize;
   quality: GemQuality;
+  hasShine: boolean;
+  value: number;
 }
 
 const categoryThresholds = Object.freeze([26, 51, 71, 91, 100]);
@@ -91,12 +93,21 @@ function getQuality(roll: number): GemQuality {
   return GemQuality.Flawless;
 }
 
+const baseValueLookup = Object.freeze([0, 0.1, 0.5, 1, 1, 5, 10, 50, 100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000]);
+
+function getBaseValue(category: GemCategory, size: GemSize, quality: GemQuality): number {
+  let index = category + size + quality - 1;
+  index = Util.limitToRange(index, 0, baseValueLookup.length - 1);
+  return baseValueLookup[index];
+}
+
 export function randomGem(): IGem {
   const category = getCategory(rollDie(100));
   const name = getName(category);
   const size = getSize(rollDie(100));
   const quality = getQuality(rollDie(100));
+  const value = getBaseValue(category, size, quality);
 
-  return { category, name, size, quality }
+  return { category, name, size, quality, hasShine: false, value }
 }
 
