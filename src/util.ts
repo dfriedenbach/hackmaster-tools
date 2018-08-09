@@ -7,7 +7,7 @@ export function makeImmutable(obj: any) {
   if (Array.isArray(obj)) {
     obj.forEach(makeImmutable);
   } else {
-    for (const key in obj) {
+    for (const key of Object.keys(obj)) {
       makeImmutable(obj[key]);
     }
   }
