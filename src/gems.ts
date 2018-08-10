@@ -21,6 +21,9 @@ export enum GemSize {
   Massive,
   Gargantuan,
 }
+export const sizeDescriptions = Object.freeze(
+  ['tiny', 'very small', 'small', 'average size', 'large', 'very large', 'huge', 'massive', 'gargantuan']
+);
 
 export enum GemQuality {
   BadlyFlawed,
@@ -33,6 +36,9 @@ export enum GemQuality {
   Perfect,
   Flawless,
 }
+export const qualityDescriptions = Object.freeze(
+  ['badly flawed', 'flawed', 'minor inclusions', 'average quality', 'good quality', 'excellent quality', 'near-perfect', 'perfect', 'flawless']
+);
 
 export interface IGem {
   category: GemCategory;
