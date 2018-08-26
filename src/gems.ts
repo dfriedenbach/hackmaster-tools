@@ -50,15 +50,9 @@ export interface IGem {
 }
 
 const categoryThresholds = Object.freeze([26, 51, 71, 91, 100]);
-
-function getCategory(roll: number): GemCategory {
-  for (let i = 0; i < categoryThresholds.length; i++) {
-    if (roll < categoryThresholds[i]) {
-      return i as GemCategory;
-    }
-  }
-  return GemCategory.Jewels;
-}
+const sizeThresholds = Object.freeze([6, 26, 46, 66, 86, 91, 97, 100]);
+const qualityThresholds = sizeThresholds;
+const baseValueLookup = Object.freeze([0, 0.1, 0.5, 1, 1, 5, 10, 50, 100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000]);
 
 const gemNames: string[][] = Util.makeImmutable([
   ['Azurite', 'Banded Agate', 'Blue Quartz', 'Eye Agate', 'Hematite', 'Lapis Lazuli', 'Malachite', 'Moss Agate', 'Obsidian', 'Rhodochrosite', 'Tiger Eye', 'Turquoise'],
@@ -77,30 +71,6 @@ function getName(category: GemCategory): string {
   return names[rollDie(names.length) - 1] || 'Error: Bad Name Index';
 }
 
-const sizeThresholds = Object.freeze([6, 26, 46, 66, 86, 91, 97, 100]);
-
-function getSize(roll: number): GemSize {
-  for (let i = 0; i < sizeThresholds.length; i++) {
-    if (roll < sizeThresholds[i]) {
-      return i as GemSize;
-    }
-  }
-  return GemSize.Gargantuan;
-}
-
-const qualityThresholds = sizeThresholds;
-
-function getQuality(roll: number): GemQuality {
-  for (let i = 0; i < qualityThresholds.length; i++) {
-    if (roll < qualityThresholds[i]) {
-      return i as GemQuality;
-    }
-  }
-  return GemQuality.Flawless;
-}
-
-const baseValueLookup = Object.freeze([0, 0.1, 0.5, 1, 1, 5, 10, 50, 100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000]);
-
 function getBaseValue(category: GemCategory, size: GemSize, quality: GemQuality): number {
   let index = category + size + quality - 1;
   index = Util.limitToRange(index, 0, baseValueLookup.length - 1);
@@ -108,10 +78,10 @@ function getBaseValue(category: GemCategory, size: GemSize, quality: GemQuality)
 }
 
 export function randomGem(): IGem {
-  const category = getCategory(rollDie(100));
+  const category = Util.tableLookup(GemCategory, categoryThresholds, rollDie(100));
   const name = getName(category);
-  const size = getSize(rollDie(100));
-  const quality = getQuality(rollDie(100));
+  const size = Util.tableLookup(GemSize, sizeThresholds, rollDie(100));
+  const quality = Util.tableLookup(GemQuality, qualityThresholds, rollDie(100));
   const value = getBaseValue(category, size, quality);
 
   return { category, name, size, quality, hasShine: false, value }

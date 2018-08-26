@@ -1,5 +1,9 @@
 import * as Constants from './constants';
 
+interface INumericEnum {
+    [index: number]: string
+}
+
 export function makeImmutable(obj: any) {
   if (!obj || (typeof obj !== Constants.ObjectType)) {
     return obj;
@@ -30,4 +34,25 @@ export function simpleCurrencyString(amount: number): string {
     return (amount * 10).toLocaleString('en-US', { maximumFractionDigits: 1 }) + 'sp';
   }
   return (amount * 100).toLocaleString('en-US', { maximumFractionDigits: 0 }) + 'cp';
+}
+
+export function getNumericEnumNames(table: INumericEnum): string[] {
+  return Object.keys(table).filter(k => typeof table[k] === Constants.StringType).map(k => table[k])
+}
+
+export function tableLookup(table: INumericEnum, thresholds: ReadonlyArray<number>, roll: number): number {
+  const enumNames = getNumericEnumNames(table);
+  if (enumNames.length !== thresholds.length + 1) {
+    throw new Error('table length mismatch');
+    return NaN;
+  }
+  let i = 0;
+  for (const threshold of thresholds) {
+    if (roll < threshold) {
+      break;
+    }
+    i++;
+  }
+  // for 0-indexed enums we could just return i, but this method works with arbitray numeric enum values
+  return table[enumNames[i]];
 }
