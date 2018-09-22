@@ -5,7 +5,7 @@ import { simpleCurrencyString } from '../util';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import Grid from '@material-ui/core/Grid';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, StyleRules } from '@material-ui/core/styles';
 
 function renderGem(gem: Gems.IGem, index: number) {
   return (
@@ -15,7 +15,7 @@ function renderGem(gem: Gems.IGem, index: number) {
   );
 }
 
-const styles = {
+const styles: StyleRules = {
   root: {
     padding: '24px',
   },
