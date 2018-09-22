@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 
 import blue from '@material-ui/core/colors/blue';
 
-import { GemsView } from './components/GemsView';
+import GemsView from './components/GemsView';
 
 const theme = createMuiTheme({
   palette: {

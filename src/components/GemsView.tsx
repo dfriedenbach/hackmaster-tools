@@ -5,20 +5,27 @@ import { simpleCurrencyString } from '../util';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
 
 function renderGem(gem: Gems.IGem, index: number) {
   return (
-    <div key={index}>
+    <Grid item key={index}>
       {[gem.name, Gems.sizeDescriptions[gem.size], Gems.qualityDescriptions[gem.quality], simpleCurrencyString(gem.value)].join(', ')}
-    </div>
+    </Grid>
   );
 }
+
+const styles = {
+  root: {
+    padding: '24px',
+  },
+};
 
 interface IState {
   gems: Gems.IGem[];
 }
 
-export class GemsView extends React.Component<{}, IState> {
+class GemsView extends React.Component<{classes: any;}, IState> {
   private numberInput: React.RefObject<HTMLInputElement>;
   constructor(props: any) {
     super(props);
@@ -43,8 +50,8 @@ export class GemsView extends React.Component<{}, IState> {
   render() {
     const gemComponents: JSX.Element[] = this.state.gems.map(renderGem);
     return (
-      <Grid direction="column" container>
-        <Grid container item justify="center" spacing={16}>
+      <Grid direction="column" container spacing={8} className={this.props.classes.root}>
+        <Grid container item spacing={16}>
           <Grid item>
             <Input inputRef={this.numberInput} type="number" placeholder="number of gems" />
           </Grid>
@@ -57,3 +64,5 @@ export class GemsView extends React.Component<{}, IState> {
     );
   }
 }
+
+export default withStyles(styles)(GemsView);
