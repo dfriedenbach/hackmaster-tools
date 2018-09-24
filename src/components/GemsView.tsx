@@ -18,6 +18,7 @@ function renderGem(gem: Gems.IGem, index: number) {
 const styles: StyleRules = {
   root: {
     padding: '24px',
+    flexGrow: 1,
   },
 };
 
@@ -50,17 +51,19 @@ class GemsView extends React.Component<{classes: any;}, IState> {
   render() {
     const gemComponents: JSX.Element[] = this.state.gems.map(renderGem);
     return (
-      <Grid direction="column" container spacing={8} className={this.props.classes.root}>
-        <Grid container item spacing={16}>
-          <Grid item>
-            <Input inputRef={this.numberInput} type="number" placeholder="number of gems" />
+      <div className={this.props.classes.root}>
+        <Grid direction="column" container spacing={8}>
+          <Grid container item spacing={16}>
+            <Grid item>
+              <Input inputRef={this.numberInput} type="number" placeholder="number of gems" />
+            </Grid>
+            <Grid item>
+              <Button variant="contained" color="primary" onClick={this.generateGems}>generate</Button>
+            </Grid>
           </Grid>
-          <Grid item>
-            <Button variant="contained" color="primary" onClick={this.generateGems}>generate</Button>
-          </Grid>
+          {gemComponents}
         </Grid>
-        {gemComponents}
-      </Grid>
+      </div>
     );
   }
 }

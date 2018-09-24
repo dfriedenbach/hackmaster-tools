@@ -37,7 +37,7 @@ class NavBar extends React.Component<{classes: any;}, {}> {
         classes={{
           paper: this.props.classes.drawerPaper
         }}>
-        <List>
+        <List disablePadding>
           <Route path='/gems' children={GemsLink} />
           <Route path='/art' children={ArtLink} />
         </List>

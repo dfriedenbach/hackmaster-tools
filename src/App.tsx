@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Route } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
-import Grid from '@material-ui/core/Grid';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -12,10 +11,19 @@ import blue from '@material-ui/core/colors/blue';
 import GemsView from './components/GemsView';
 import NavBar from './components/NavBar';
 
+import * as Util from './util';
+
 const theme = createMuiTheme({
   palette: {
     primary: blue,
   },
+});
+
+const appStyle = Util.makeImmutable({
+  flexGrow: 1,
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'stretch',
 });
 
 class App extends React.Component {
@@ -29,10 +37,10 @@ class App extends React.Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <Grid>
+        <div style={appStyle}>
           <NavBar />
           <Route path='/gems' component={GemsView} />
-        </Grid>
+        </div>
       </MuiThemeProvider>
     );
   }
