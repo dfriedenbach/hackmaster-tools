@@ -34,10 +34,10 @@ export function rollDie(size: number, modifier: number = 0, options: IRollOption
 
 const diceRegex = /(\d*)d(\d+)([+-]\d+)?/i;
 
-export function roll(input: string, options: IRollOptions = defaultOptions): number | undefined {
+export function roll(input: string, options: IRollOptions = defaultOptions): number{
   const match = diceRegex.exec(input);
   if (!match) {
-    return;
+    return NaN;
   }
   const die = parseInt(match[2], 10);
   const quantity = match[1] ? parseInt(match[1], 10) : 1;
