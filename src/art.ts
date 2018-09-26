@@ -28,7 +28,8 @@ export enum Renown {
   Movement,
 }
 export const renownDescriptions = Object.freeze(
-  ['unknown', 'obscure', 'city renowned', 'regionally renowned', 'nationally renowned', 'continentally renowned', 'world famous', 'movement leader']
+  ['unknown artist', 'obscure artist', 'city renowned artist', 'regionally renowned artist', 'nationally renowned artist',
+  'continentally renowned artist', 'world famous artist', 'movement leader']
 );
 
 export enum Size {
@@ -58,7 +59,8 @@ export enum MaterialQuality {
   Unique,
 }
 export const materialDescriptions = Object.freeze(
-  ['awful', 'poor', 'below average', 'average', 'above average', 'good', 'excellent', 'finest', 'unique']
+  ['awful materials', 'poor materials', 'below average materials', 'average materials', 'above average materials',
+  'good materials', 'excellent materials', 'finest materials', 'unique materials']
 );
 
 export enum WorkQuality {
@@ -137,8 +139,8 @@ const ageThresholds = Object.freeze([26, 76, 151, 301, 601, 1501, 3001])
 const conditionThresholds = sizeThresholds;
 const subjectThresholds = Object.freeze([11, 21, 31, 51, 71, 91, 100]);
 
-const conditionModifiersByType = Object.freeze([-2, -2, -1, -1, -1, 0, 1, 2, 3])
-const ageRangeModifiersByType = Object.freeze([-2, -2, -1, -1, -1, 0, 0, 0, 0])
+const conditionModifiersByType = Object.freeze([-2, -2, -1, -1, -1, 0, 0, 1, 2, 3])
+const ageRangeModifiersByType = Object.freeze([-2, -2, -1, -1, -1, 0, 0, 0, 0, 0])
 const subjectValueModifiers = Object.freeze([-2, -1, 0, 0, 0, 0, 1, 2]);
 
 
@@ -179,7 +181,7 @@ function getCondition(type: Type): Condition {
 function getValue(r: Renown, sz: Size, m: MaterialQuality, w: WorkQuality, age: number, c: Condition, subject: Subject): number {
   const a = Util.tableLookup(AgeRange, ageThresholds, age);
   const sb = subjectValueModifiers[subject];
-  let index = r + sz + m + w + a + c + sb - 17;
+  let index = r + sz + m + w + a + c + sb + 2;
   index = Util.limitToRange(index, 0, valueLookup.length - 1);
   return valueLookup[index];
 }

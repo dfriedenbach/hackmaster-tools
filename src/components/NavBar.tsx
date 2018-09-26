@@ -38,8 +38,8 @@ class NavBar extends React.Component<{classes: any;}, {}> {
           paper: this.props.classes.drawerPaper
         }}>
         <List disablePadding>
-          <Route path='/gems' children={GemsLink} />
-          <Route path='/art' children={ArtLink} />
+          <Route path="/gems" children={GemsLink} />
+          <Route path="/art" children={ArtLink} />
         </List>
       </Drawer>
     );

@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 import blue from '@material-ui/core/colors/blue';
 
+import ArtView from './components/ArtView';
 import GemsView from './components/GemsView';
 import NavBar from './components/NavBar';
 
@@ -39,7 +40,8 @@ class App extends React.Component {
         </AppBar>
         <div style={appStyle}>
           <NavBar />
-          <Route path='/gems' component={GemsView} />
+          <Route path="/gems" component={GemsView} />
+          <Route path="/art" component={ArtView} />
         </div>
       </MuiThemeProvider>
     );
