@@ -1,2 +1,2 @@
 # hackmaster-tools
-A set of tools for creating and managing characters in the HackMaster 4th Edition roleplaying system.
+Tools to streamline the game experience for players and GMs of HackMaster 4th Edition.
