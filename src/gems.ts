@@ -54,7 +54,7 @@ const sizeThresholds = Object.freeze([6, 26, 46, 66, 86, 91, 97, 100]);
 const qualityThresholds = sizeThresholds;
 const baseValueLookup = Object.freeze([0, 0.1, 0.5, 1, 1, 5, 10, 50, 100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000]);
 
-const gemNames: string[][] = Util.makeImmutable([
+const gemNames: string[][] = Util.deepFreeze([
   ['Azurite', 'Banded Agate', 'Blue Quartz', 'Eye Agate', 'Hematite', 'Lapis Lazuli', 'Malachite', 'Moss Agate', 'Obsidian', 'Rhodochrosite', 'Tiger Eye', 'Turquoise'],
   ['Bloodstone', 'Carnelian', 'Chalcedony', 'Chrysoprose', 'Citrine', 'Jasper', 'Moonstone', 'Onyx', 'Rock Crystal', 'Sardonyx', 'Smoky Quartz', 'Star Rose Quartz'],
   ['Amber', 'Alexandrite', 'Amethyst', 'Chrysoberyl', 'Coral', 'Garnet (red/brown/green)', 'Jade', 'Jet', 'Pearl', 'Spinel (red/brown/green)', 'Tourmaline', 'Zircon'],

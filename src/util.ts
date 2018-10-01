@@ -4,15 +4,15 @@ interface INumericEnum {
     [index: number]: string
 }
 
-export function makeImmutable(obj: any) {
-  if (!obj || (typeof obj !== Constants.ObjectType)) {
+export function deepFreeze(obj: any) {
+  if (!obj || (typeof obj !== Constants.ObjectType) || Object.isFrozen(obj)) {
     return obj;
   }
   if (Array.isArray(obj)) {
-    obj.forEach(makeImmutable);
+    obj.forEach(deepFreeze);
   } else {
-    for (const key of Object.keys(obj)) {
-      makeImmutable(obj[key]);
+    for (const prop of Object.getOwnPropertyNames(obj)) {
+      deepFreeze(obj[prop]);
     }
   }
   return Object.freeze(obj);

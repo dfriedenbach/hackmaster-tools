@@ -20,7 +20,7 @@ const theme = createMuiTheme({
   },
 });
 
-const appStyle = Util.makeImmutable({
+const appStyle = Util.deepFreeze({
   flexGrow: 1,
   display: 'flex',
   flexDirection: 'row',
