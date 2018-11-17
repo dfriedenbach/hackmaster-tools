@@ -1,5 +1,5 @@
-import { roll, rollDie } from './dice';
-import * as Util from './util';
+import { roll, rollDie } from 'client/dice';
+import * as Util from 'shared/util';
 
 export enum Type {
   Paper,

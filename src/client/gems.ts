@@ -1,5 +1,5 @@
-import { rollDie } from './dice';
-import * as Util from './util';
+import { rollDie } from 'client/dice';
+import * as Util from 'shared/util';
 
 export enum GemCategory {
   Ornamental,

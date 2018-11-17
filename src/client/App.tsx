@@ -8,11 +8,11 @@ import Typography from '@material-ui/core/Typography';
 
 import blue from '@material-ui/core/colors/blue';
 
-import ArtView from './components/ArtView';
-import GemsView from './components/GemsView';
-import NavBar from './components/NavBar';
+import ArtView from 'client/components/ArtView';
+import GemsView from 'client/components/GemsView';
+import NavBar from 'client/components/NavBar';
 
-import * as Util from './util';
+import * as Util from 'shared/util';
 
 const theme = createMuiTheme({
   palette: {

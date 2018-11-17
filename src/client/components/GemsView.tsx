@@ -1,6 +1,6 @@
 import * as React from 'react';
-import * as Gems from '../gems';
-import { simpleCurrencyString } from '../util';
+import * as Gems from 'client/gems';
+import { simpleCurrencyString } from 'shared/util';
 
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';

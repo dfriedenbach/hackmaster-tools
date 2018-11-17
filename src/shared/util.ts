@@ -1,4 +1,4 @@
-import * as Constants from './constants';
+import * as Constants from 'shared/constants';
 
 interface INumericEnum {
     [index: number]: string
@@ -53,6 +53,6 @@ export function tableLookup(table: INumericEnum, thresholds: ReadonlyArray<numbe
     }
     i++;
   }
-  // for 0-indexed enums we could just return i, but this method works with arbitray numeric enum values
+  // for 0-indexed enums we could just return i, but this method works with arbitrary numeric enum values
   return table[enumNames[i]];
 }

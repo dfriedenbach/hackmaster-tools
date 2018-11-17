@@ -1,4 +1,4 @@
-import { randInt } from './util';
+import { randInt } from 'shared/util';
 
 export enum Honor {
   Poor = -1,

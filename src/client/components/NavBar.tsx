@@ -7,7 +7,7 @@ import ListItem from '@material-ui/core/ListItem';
 import { withStyles, StyleRules } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
-import { linkToRoute } from './Util';
+import { linkToRoute } from 'client/components/Util';
 
 function linkButton(route: string, text: string) {
   const component = linkToRoute(route);

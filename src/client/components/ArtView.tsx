@@ -1,6 +1,6 @@
 import * as React from 'react';
-import * as Art from '../art';
-import { simpleCurrencyString } from '../util';
+import * as Art from 'client/art';
+import { simpleCurrencyString } from 'shared/util';
 
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
