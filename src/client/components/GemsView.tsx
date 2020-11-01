@@ -52,8 +52,8 @@ class GemsView extends React.Component<{classes: any;}, IState> {
     const gemComponents: JSX.Element[] = this.state.gems.map(renderGem);
     return (
       <div className={this.props.classes.root}>
-        <Grid direction="column" container spacing={8}>
-          <Grid container item spacing={16}>
+        <Grid direction="column" container spacing={2}>
+          <Grid container item spacing={4}>
             <Grid item>
               <Input inputRef={this.numberInput} type="number" placeholder="number of gems" />
             </Grid>

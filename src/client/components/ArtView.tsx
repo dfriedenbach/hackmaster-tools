@@ -62,8 +62,8 @@ class ArtView extends React.Component<{classes: any;}, IState> {
     const artComponents: JSX.Element[] = this.state.art.map(renderArt);
     return (
       <div className={this.props.classes.root}>
-        <Grid direction="column" container spacing={8}>
-          <Grid container item spacing={16}>
+        <Grid direction="column" container spacing={2}>
+          <Grid container item spacing={4}>
             <Grid item>
               <Input inputRef={this.numberInput} type="number" placeholder="number of art objects" />
             </Grid>

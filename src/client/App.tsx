@@ -33,7 +33,7 @@ class App extends React.Component {
       <MuiThemeProvider theme={theme}>
         <AppBar position="static">
           <Toolbar>
-            <Typography variant="title" color="inherit">
+            <Typography variant="h4" color="inherit">
               HackMaster Tools
             </Typography>
           </Toolbar>
