@@ -44,7 +44,6 @@ export function tableLookup(table: INumericEnum, thresholds: ReadonlyArray<numbe
   const enumNames = getNumericEnumNames(table);
   if (enumNames.length !== thresholds.length + 1) {
     throw new Error('table length mismatch');
-    return NaN;
   }
   let i = 0;
   for (const threshold of thresholds) {
