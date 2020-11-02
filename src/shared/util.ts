@@ -1,11 +1,11 @@
-import * as Constants from 'shared/constants';
+import * as Constants from "shared/constants";
 
 interface INumericEnum {
-    [index: number]: string
+  [index: number]: string;
 }
 
 export function deepFreeze(obj: any) {
-  if (!obj || (typeof obj !== Constants.ObjectType) || Object.isFrozen(obj)) {
+  if (!obj || typeof obj !== Constants.ObjectType || Object.isFrozen(obj)) {
     return obj;
   }
   if (Array.isArray(obj)) {
@@ -28,22 +28,32 @@ export function limitToRange(num: number, min: number, max: number): number {
 
 export function simpleCurrencyString(amount: number): string {
   if (Math.abs(amount) >= 1) {
-    return amount.toLocaleString('en-US', { maximumFractionDigits: 2 }) + 'gp';
+    return amount.toLocaleString("en-US", { maximumFractionDigits: 2 }) + "gp";
   }
   if (Math.abs(amount) >= 0.1) {
-    return (amount * 10).toLocaleString('en-US', { maximumFractionDigits: 1 }) + 'sp';
+    return (
+      (amount * 10).toLocaleString("en-US", { maximumFractionDigits: 1 }) + "sp"
+    );
   }
-  return (amount * 100).toLocaleString('en-US', { maximumFractionDigits: 0 }) + 'cp';
+  return (
+    (amount * 100).toLocaleString("en-US", { maximumFractionDigits: 0 }) + "cp"
+  );
 }
 
 export function getNumericEnumNames(table: INumericEnum): string[] {
-  return Object.keys(table).filter(k => typeof table[k] === Constants.StringType).map(k => table[k])
+  return Object.keys(table)
+    .filter((k) => typeof table[k] === Constants.StringType)
+    .map((k) => table[k]);
 }
 
-export function tableLookup(table: INumericEnum, thresholds: ReadonlyArray<number>, roll: number): number {
+export function tableLookup(
+  table: INumericEnum,
+  thresholds: ReadonlyArray<number>,
+  roll: number
+): number {
   const enumNames = getNumericEnumNames(table);
   if (enumNames.length !== thresholds.length + 1) {
-    throw new Error('table length mismatch');
+    throw new Error("table length mismatch");
   }
   let i = 0;
   for (const threshold of thresholds) {

@@ -1,18 +1,18 @@
-import * as React from 'react';
-import { Route } from 'react-router-dom';
+import * as React from "react";
+import { Route } from "react-router-dom";
 
-import AppBar from '@material-ui/core/AppBar';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import AppBar from "@material-ui/core/AppBar";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
 
-import blue from '@material-ui/core/colors/blue';
+import blue from "@material-ui/core/colors/blue";
 
-import ArtView from 'client/components/ArtView';
-import GemsView from 'client/components/GemsView';
-import NavBar from 'client/components/NavBar';
+import NavBar from "client/components/NavBar";
+import ArtView from "client/views/ArtView";
+import GemsView from "client/views/GemsView";
 
-import * as Util from 'shared/util';
+import * as Util from "shared/util";
 
 const theme = createMuiTheme({
   palette: {
@@ -22,9 +22,9 @@ const theme = createMuiTheme({
 
 const appStyle = Util.deepFreeze({
   flexGrow: 1,
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'stretch',
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "stretch",
 });
 
 class App extends React.Component {
