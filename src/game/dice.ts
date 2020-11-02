@@ -1,4 +1,4 @@
-import { randInt } from 'shared/util';
+import { randInt } from "shared/util";
 
 export enum Honor {
   Poor = -1,
@@ -9,7 +9,7 @@ export enum Honor {
 export interface IRollOptions {
   penetration?: boolean;
   crossbow?: boolean;
-  honor?: Honor,
+  honor?: Honor;
 }
 const defaultOptions = Object.freeze({
   honor: Honor.Average,
@@ -19,12 +19,16 @@ function rollDieInternal(size: number): number {
   return randInt(1, size);
 }
 
-export function rollDie(size: number, modifier: number = 0, options: IRollOptions = defaultOptions): number {
+export function rollDie(
+  size: number,
+  modifier: number = 0,
+  options: IRollOptions = defaultOptions
+): number {
   let result = modifier;
   let rolled = rollDieInternal(size);
   result += rolled + (options.honor || Honor.Average);
   if (options.penetration && size > 2) {
-    while (rolled === size || options.crossbow && rolled === size - 1) {
+    while (rolled === size || (options.crossbow && rolled === size - 1)) {
       rolled = rollDieInternal(size);
       result += rolled - 1 + (options.honor || Honor.Average);
     }
@@ -34,7 +38,10 @@ export function rollDie(size: number, modifier: number = 0, options: IRollOption
 
 const diceRegex = /(\d*)d(\d+)([+-]\d+)?/i;
 
-export function roll(input: string, options: IRollOptions = defaultOptions): number{
+export function roll(
+  input: string,
+  options: IRollOptions = defaultOptions
+): number {
   const match = diceRegex.exec(input);
   if (!match) {
     return NaN;
@@ -49,4 +56,3 @@ export function roll(input: string, options: IRollOptions = defaultOptions): num
   }
   return result + modifier;
 }
-
